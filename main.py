@@ -26,6 +26,11 @@ def get_db():
     finally:
         db.close()
 
+@app.get("/")
+def status():
+  return "Conectado..."
+
+
 @app.post("/Familia/")
 def crear_usuario(Familia: schemas.FamiliaCrear, db: Session = Depends(get_db)):
     
